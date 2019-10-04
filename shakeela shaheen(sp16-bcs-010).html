@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<p>Todays task</p>
+	<p id="demo1">abc</p>
+<script type="text/javascript">
+
+function student(name,age,sem){
+	this.name=name;
+	this.age=age;
+	this.sem=sem;
+	
+}
+//"creating objects"
+var stu1=new student("salma",20,"3rd");
+var stu2=new student("ahsan",20,"5th");
+var stu3=new student("sundas",20,"7th");
+console.log("3 objects are created")
+
+//Adding property to this function"
+student.prototype.program="mcs";
+
+
+
+//Adding methood like define property methood
+
+console.log(stu1);
+// Change a property
+Object.defineProperty(student.prototype,"print_pro",{value:function get(){
+	console.log(this.name+","+this.age+","+this.sem+","+this.program)},
+writable:true
+});
+stu1.print_pro()
+stu2.print_pro()
+stu3.print_pro()
+
+//  Adding objects in array and taking input from user and display properties values accordingly
+
+var array1= [stu1,stu2,stu3];
+console.log("Array containing values: "+array1)
+
+var property=prompt("enter property name: ");
+
+index=0;
+if(array1[index][property]!=undefined)
+{
+	for (index=0;index<3;index++){
+		console.log(array1[index][property]);
+	}
+}
+else{
+		console.log("no matching property ")
+	}
+
+
+</script>
+</body>
+</html>
